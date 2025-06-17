@@ -4,6 +4,7 @@ import StatusBar from './components/StatusBar'
 import SaveButton from './components/SaveButton'
 import OfflineWarning from './components/OfflineWarning'
 import UserList from './components/UserList'
+import ProductList from './components/ProductList'
 import './App.css'
 const Counter1 = () => {
   const {count, increment} = useCounter(0);
@@ -34,6 +35,11 @@ function App() {
       <br/>
       <div>
         <UserList/>
+      </div>
+      <br />
+      <br />
+      <div>
+        <ProductList/>
       </div>
     </>
   )

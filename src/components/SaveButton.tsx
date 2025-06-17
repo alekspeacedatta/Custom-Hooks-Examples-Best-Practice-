@@ -10,4 +10,4 @@ const SaveButton = () => {
         </button>
     )
 }
-export default SaveButton
+export default SaveButton;

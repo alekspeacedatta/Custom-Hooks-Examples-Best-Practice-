@@ -31,7 +31,7 @@ export function useFetch<T>(url: string):FetchState<T>{
                 }
             }
         }
-
+        
         fetchData();
 
         return () => {
