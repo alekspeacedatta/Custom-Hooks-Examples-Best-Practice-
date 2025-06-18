@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCounter } from './hooks/useCounter'
+import { useToggle } from './hooks/useToggle'
 import StatusBar from './components/StatusBar'
 import SaveButton from './components/SaveButton'
 import OfflineWarning from './components/OfflineWarning'
 import UserList from './components/UserList'
 import ProductList from './components/ProductList'
+import ToggleExample from './components/ToggleExample'
 import './App.css'
 const Counter1 = () => {
   const {count, increment} = useCounter(0);
@@ -15,12 +17,28 @@ const Counter2 = () => {
   return <button onClick={increment}>Counter 2 Clicked {count} times</button>
 }
 function App() {
+  const {value: isVisible, toggle} = useToggle();
+  const body = document.body;
+  if(body){
+    body.style.backgroundColor = isVisible ? 'black' : 'white';
+    body.style.color = isVisible ? 'white' : 'black';
+  }
   return (
-    <>
-      <Counter1/>
+    <div>
+      <div>
+        <ToggleExample/>
+      </div>
       <br />
+      <div>
+        <button onClick={toggle}>change theme color</button>
+      </div>
       <br />
-      <Counter2/>      
+      <div>
+        <Counter1/>
+        <br />
+        <br />
+        <Counter2/>      
+      </div>
       <div>
         <StatusBar/>
       </div>
@@ -41,7 +59,9 @@ function App() {
       <div>
         <ProductList/>
       </div>
-    </>
+      <br />
+      <br />
+    </div>
   )
 }
 
