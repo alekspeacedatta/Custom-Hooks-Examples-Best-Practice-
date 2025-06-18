@@ -1,4 +1,6 @@
 import { useFetch } from "../hooks/useFetch"
+import { useCounter } from "../hooks/useCounter"
+import Product from "./product"
 interface Product {
     userId: number,
     id: number,
@@ -20,10 +22,7 @@ const ProductList = () => {
             </h1>
             <ul>
                 {products?.map(product => (
-                    <li key={product.id}>
-                        <strong> {product.title} </strong> 
-                        {product.body};
-                    </li>
+                    <Product id={product.id} title={product.title} body={product.body}/>
                 ))}
             </ul>
         </div>
